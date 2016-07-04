@@ -1,0 +1,481 @@
+<?php
+if(isset($_POST['send']))
+{
+session_start();
+$tel=$_POST['telephone'];
+$name=$_POST['name'];
+$object="Отправка заявки (pandaboots.ru)";
+$text=date("Y-m-d:H-i").": $name заказал(а) заявку на звонки на этому номеру $tel";
+$_SESSION['tel']=$tel;
+$_SESSION['name']=$name;
+$to="dimasty@yandex.ru";
+
+$header="From:$name\r\nReply-to:$name\r\nContent-type:text/plain;charset=utf-8\r\n";
+$object="=?utf-8?B?".base64_encode($object)."?=";
+mail($to,$object,$text,$header);
+header("Location:succes.php?send=1");
+exit;
+}
+if(isset($_POST['send2']))
+{
+session_start();
+$tel=$_POST['telephone'];
+$object="Заказ звонка (pandaboots.ru)";
+$text=date("Y-m-d:H-i").": Заказаз звонка по этому $tel номеру";
+$_SESSION['tel']=$tel;
+$to="dimasty@yandex.ru";
+
+$header="From:$name\r\nReply-to:$name\r\nContent-type:text/plain;charset=utf-8\r\n";
+$object="=?utf-8?B?".base64_encode($object)."?=";
+mail($to,$object,$text,$header);
+header("Location:succes1.php?send=1");
+exit;
+}
+if(isset($_POST['send3']))
+{
+session_start();
+$tel=$_POST['telephone'];
+$object="Заказ звонка (pandaboots.ru)";
+$text=date("Y-m-d:H-i").": Заказаз звонка по этому $tel номеру";
+$_SESSION['tel']=$tel;
+$to="dimasty@yandex.ru";
+
+$header="From:$name\r\nReply-to:$name\r\nContent-type:text/plain;charset=utf-8\r\n";
+$object="=?utf-8?B?".base64_encode($object)."?=";
+mail($to,$object,$text,$header);
+header("Location:succes1.php?send=1");
+exit;
+}
+if(isset($_POST['send4']))
+{
+session_start();
+$tel=$_POST['telephone'];
+$name=$_POST['name'];
+$prod=$_POST['product'];
+$col=$_POST['colect'];
+$object="Заказ продукта (pandaboots.ru)";
+$text=date("Y-m-d:H-i").": $name с этим $tel телефоном заказал(а) покупку продукта $prod $col";
+$_SESSION['tel']=$tel;
+$to="dimasty@yandex.ru";
+
+$header="From:$name\r\nReply-to:$name\r\nContent-type:text/plain;charset=utf-8\r\n";
+$object="=?utf-8?B?".base64_encode($object)."?=";
+mail($to,$object,$text,$header);
+header("Location:succes1.php?send=1");
+exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/style.css" type="text/css"/>
+<link href="slide/css/default.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/slide.css" type="text/css"/>
+<link rel="stylesheet" href="css/slide1.css" type="text/css"/>
+
+
+
+<script src="slide/js/init.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="js/nen.slider.js"></script>	
+<script type="text/javascript" src="js/main.js"></script>
+
+    <script type="text/javascript" src="js/jquery.fancybox.js" ></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.call-but').fancybox({
+				openEffect : 'elastic',
+				openSpeed  : 150,
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+				helpers : {
+					overlay : null
+				}
+			});
+		});
+	</script>
+
+        <link rel="stylesheet" href="css/jquery.countdown.css" />
+
+<title>Продажа стильных домашних угг.
+Доставка по Москве и всей России
+
+</title>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logoPlace">
+			<img src="images/logo.png">
+		</div>
+		<div id="infoPlace">
+			<p class="tel">8(495)663-52-39</p>
+			<p class="tel">8(925)663-52-39</p>
+			<p class="Bt_text">Звоните! с 9.00 до 22.00  пн-вс.</p>
+			<div class="call-button"><a href="#call" onclick="yaCounter22835437.reachGoal('zakzv'); return true;"><img src="images/call_but.png"></a>
+			</div>
+		</div>
+		<div id="TextPlace">
+			
+			<p><span>Продажа стильных домашних угг.</span><br>Доставка по Москве и всей России</p>
+		</div>
+	</div>
+	<div id="form_place">
+		<div id="form1">
+			<p class="form1_t1">Хватит мерзнуть!<br>и<br>носить старые тапки!<p class="form1_t2">Заполните форму:</p></p>
+			
+			<form method="POST" action="index.php" name="myform1" onsubmit="yaCounter22835437.reachGoal('zakzvnmt'); return true;">
+				<p><input type="text" name="name" placeholder="ваше имя" required="required"></p>
+				<p><input type="text" name="telephone" placeholder="ваш телефон" required="required"></p>
+<p class="form1_t2" style="margin-top: -10px;">и получите скидку <span style="color:#05e0f3;">50%</span><br>на модные домашние угги</p>				
+				<input type="submit" name="send" value="">
+			</form>
+		</div>
+	</div >
+	<div id="easy_rec">
+	<p>Домашние угги Pandaboots - согрей себя холодной зимой</p>
+		<div id="circle"><p class='s'>Уже более<br><span>10750</span><br>женщин</p>
+    <p class='s' style="margin-left:0;margin-top:0;">носят наши угги</p>
+		</div>
+		<div id="circle1"><p>Быстрая<br>доставка</p><p style="margin-left:0;margin-top:0;">по Москве <span>300р</span><br>по России <span>300р</span></p>
+		</div>
+		<div id="circle2"><p>Гарантируем<br><span>возврат</span> если</p><p style="margin-left:0;margin-top:0;">вам не подойдет</p>  
+		</div>
+	</div >
+		<div id="summer">
+		<div id="in_summer"><p>Высокие домашние угги</p>
+		</div>
+	</div >
+	<div class="clear"></div>
+	<div id="summ_slings">
+		<!--slide-->
+		<!--<div id="content">
+		<h1>Демонстрация слайдера MobilySelect</h1>
+		<p class="pd">Пример 1</p>
+		<pre class="code_sample">
+		<!--$('.slider1').mobilyslider();-->
+		</pre>
+		<div class="slider"><p id="sliderp">«Плюшевые»</p>
+			<div class="product">
+
+						<div class="image">
+							<div class="active"><img src="slide/tow/l1/1.jpg" alt="Розовые" /></div>
+							<div><img src="slide/tow/l1/2.jpg" alt="Голубые" /></div>
+							<div><img src="slide/tow/l1/3.jpg" alt="Фиолетовые" /></div>
+							<div><img src="slide/tow/l1/4.jpg" alt="Кремовые" /></div>
+							<div><img src="slide/tow/l1/5.jpg" alt="Бежевые" /></div>
+						</div>
+						<div class="color">
+							<div class="nav">
+								<div class="left"></div>
+								<div class="right"></div>
+							</div>
+							<p>Розовые</p>
+						</div>
+						<span>выберите расцветку</span>
+						<input type="button" class="getProduct1" onclick="getProduct(this);document.getElementById('coll1').value='«Плюшевые»';yaCounter22835437.reachGoal('zaktov'); return true;" value="" />
+					</div>
+		</div>
+		<div class="slider"><p id="sliderp">«Вязаные»</p>
+			<div class="product">
+
+						<div class="image">
+							<div class="active"><img src="slide/tow/l2/1.jpg" alt="Бежевые" /></div>
+							<div><img src="slide/tow/l2/2.jpg" alt="Розовые" /></div>
+							<div><img src="slide/tow/l2/3.jpg" alt="Серые" /></div>
+							<div><img src="slide/tow/l2/4.jpg" alt="Белые" /></div>
+							<div><img src="slide/tow/l2/5.jpg" alt="Фуксия" /></div>
+						</div>
+						<div class="color">
+							<div class="nav">
+								<div class="left"></div>
+								<div class="right"></div>
+							</div>
+							<p>Бежевые</p>
+						</div>
+						<span>выберите расцветку</span>
+						<input type="button" class="getProduct1" onclick="getProduct(this);document.getElementById('coll1').value='«Вязаные»';yaCounter22835437.reachGoal('zaktov'); return true;" value="" />
+					</div>
+		</div>
+		<div class="slider"><p id="sliderp">«Скандинавские»</p>
+			<div class="product">
+
+						<div class="image">
+							<div class="active"><img src="slide/tow/l3/1.jpg" alt="Серые" /></div>
+							<div><img src="slide/tow/l3/2.jpg" alt="Черно-серые" /></div>
+							<div><img src="slide/tow/l3/3.jpg" alt="Синие" /></div>
+							<div><img src="slide/tow/l3/4.jpg" alt="Красные" /></div>
+							<div><img src="slide/tow/l3/5.jpg" alt="Красно-белые" /></div>
+						</div>
+						<div class="color">
+							<div class="nav">
+								<div class="left"></div>
+								<div class="right"></div>
+							</div>
+							<p>Серые</p>
+						</div>
+						<span>выберите расцветку</span>
+						<input type="button" class="getProduct1" onclick="getProduct(this);document.getElementById('coll1').value='«Скандинавские»';yaCounter22835437.reachGoal('zaktov'); return true;" value="" />
+					</div>
+		</div>
+		<!--end slide--><div class="act"><div style="height:120px;"></div><p id="date"></p><div id="countdown"></div></div>
+	</div>
+
+		
+		
+	</div >
+	<div id="autumn">
+		<div id="in_autumn"><p>Короткие домашние угги</p>
+		</div>
+	</div >
+	<div class="clear1"></div>
+	<div id="autumn_slings">
+		<div class="slider"><p id="sliderp">«С бумбоном»</p>
+			<div class="product">
+
+						<div class="image">
+							<div class="active"><img src="slide/tow/o1/1.jpg" alt="Кремовые"/></div>
+							<div><img src="slide/tow/o1/2.jpg" alt="Серые" /></div>
+							<div><img src="slide/tow/o1/3.jpg" alt="Светло-коричневые" /></div>
+						</div>
+						<div class="color">
+							<div class="nav">
+								<div class="left"></div>
+								<div class="right"></div>
+							</div>
+							<p>Кремовые</p>
+						</div>
+						<span>выберите расцветку</span>
+						<input type="button" class="getProduct1" onclick="getProduct(this);document.getElementById('coll1').value='«С бумбоном»';yaCounter22835437.reachGoal('zaktov'); return true; document.getElementById('coll1').value='test'" value="" />
+					</div>
+		</div>
+		<div class="slider"><p id="sliderp">«С цветком»</p>
+			<div class="product">
+
+						<div class="image">
+							<div class="active"><img src="slide/tow/o3/1.jpg" alt="Светло-коричневые" /></div>
+							<div><img src="slide/tow/o3/2.jpg" alt="Розовые" /></div>
+							<div><img src="slide/tow/o3/3.jpg" alt="Серые" /></div>
+							<div><img src="slide/tow/o3/4.jpg" alt="Кремовые" /></div>
+						</div>
+						<div class="color">
+							<div class="nav">
+								<div class="left"></div>
+								<div class="right"></div>
+							</div>
+							<p>Светло-коричневые</p>
+						</div>
+						<span>выберите расцветку</span>
+						<input type="button" class="getProduct1" onclick="getProduct(this);document.getElementById('coll1').value='«С цветком»';yaCounter22835437.reachGoal('zaktov'); return true;" value="" />
+					</div>
+		</div>
+		<div class="slider"><p id="sliderp">«С мехом»</p>
+			<div class="product">
+
+						<div class="image">
+							<div class="active"><img src="slide/tow/o2/1.jpg" alt="Кремовые" /></div>
+						</div>
+						<div class="color">
+							<div class="nav">
+								<div class="left"></div>
+								<div class="right"></div>
+							</div>
+							<p>Кремовые</p>
+						</div>
+						<span>выберите расцветку</span>
+						<input type="button" class="getProduct1" onclick="getProduct(this);document.getElementById('coll1').value='«С мехом»';yaCounter22835437.reachGoal('zaktov'); return true;" value="" />
+					</div>
+		</div><div class="act2"><div style="height:120px;"></div><p id="date2"></p><div id="countdown-2"></div></div>
+	</div >
+	<div id="aboutSling">
+		<p class="about_h">Почему домашние угги Pandaboots такие класные?</p>
+		<table>
+			<tr><td rowspan="6" class="pic"><img src="images/5_pic.png"></td></tr>
+			<tr><td><p class="head_t"><span style="top: -35px;">1</span>Особое двухслойное плетение нитей при вязке</p><p class="text">Делает угги очень легкими, почти невесомыми, ходить в них по дому одно удовольствие</p></td></tr>
+			<tr><td><p class="head_t"><span>2</span>Очень мягкая но прочная резиновая подошва</p><p class="text">При ходьбе создается ощущение, как будто ходишь босиком.<br>Она не повредит напольное покрытие, и при этом не даст вам подскользунься на скользком полу</p></td></tr>
+			<tr><td><p class="head_t"><span>3</span>Густой и пушистый внутренний мех</p><p class="text">Очень плотный мех сохраняет тепло, но при этом не препятствует есстественной циркуляции и притоку нового воздуха.</p></td></tr>
+			<tr><td><p class="head_t"><span>4</span>Модные никогда не стареющие расцветки и узоры</p><p class="text">В наших уггах вы всегда будете выглядеть стильно и молодо.</p></td></tr>
+			<tr><td><p class="head_t"><span>5</span>Элегантная отделка натуральным мехом</p><p class="text">Добавит изюминку вашему образу и будет греть не только ножки но и душу.</p></td></tr>
+		</table>
+	</div >
+	<div id="getSling">
+		
+		<p class="get_h">Как получить угги:</p>
+		<p class="p1">Вы оставляете<br> заявку на сайте</p>
+		<p class="p2">В течение 10<br> минут мы вам<br> перезваниваем</p>
+		<p class="p3">На следующий<br> день привозим<br> ваш заказ</p>
+		<p class="p4">Вы проверяете<br> и оплачиваете<br> курьеру</p>
+		<p class="p5">Носите долго и<br> счастливо а потом<br> дарите внукам</p>
+		
+	</div>
+	<div id="form2">
+		<p>Порадуйте себя этой зимой<br>ведь вы их так давно хотели!</p>
+		<p style="color:white;margin-top:0;padding-top: 0;">Оставьте телефон<br>и мы призем их уже завтра!</p>
+		<form method="POST" action="index.php" name="form2" onsubmit="yaCounter22835437.reachGoal('zakzvnmt'); return true;">
+		<p><input type="text" name="telephone" placeholder="ваш телефон" required="required"></p>
+		<input type="submit" name="send2" value="">
+		</form>
+	</div>
+	<div id="coment">
+		<div id="in_coment"><p>Отзывы о наших уггах:</p>
+		</div>
+	</div >
+	<div class="clear"></div>	
+	<div id="comentText">
+	<div id="coment3">
+	<img src="images/ph1.png">
+	<div id="coment3_t">
+	<p>Ольга Волгоград.<br>
+	Очень давно хотела себе такие чудо плюшевые домашние угги, но в нашем городке нигде их не видела и решила  заказать в интернет магазине. Когда увидела их на фотографии влюбилась сразу же с первого взгляда))Но не стала сразу их покупать, очень показались дорогими, думаю вдруг распродажи начнуться, тогда и куплю. Через время опять зашла на сайт и о чудо, как и хотела, попала на распродажу и решилась на покупку, ну думаю побалую себя)) Заказала, менеджер перезвонил почти сразу, вежливо рассказал, что оплатить можно при получении угг дома, когда почтальон принесет их. Доставка заняла 3 дня, приехали точ в точ как на картинке, качество очень понравилось, и главное какие удобные, какие мягкие, спасибо вам за теплые минуты для моих ножек :)
+	</p>
+	</div></div>
+	<div id="coment4">
+	<div id="coment4_t">
+	<p>Наташа Омск.<br>
+	На улице похолодало, а отопление еще не включили, что делать, вспомнила, что давнохотела купить себе домашние валенки, тут же полезла в интернет и попала на ваш сайт, Выбор, цены и отзывы мне очень понравились, решила покупать у вас. Всякие разные выбирала по форме и цвету, с бантиками, рисунками- всё что угодно душе, в тоге приглянулись именно такие с цветочками. Размеры у них делятся как я поняла на 36/37, 38/39,40/41. Для себя взяла самый маленький 36/37. Выбрала светлый цвет, так как предпочитаю светлые оттенки, в особенности люблю бежевый. Размер подошел точ в точ, и сами валенки очень понравились, теперь таскаю их не снимая, пару раз даже засыпала в них, забывая снять.
+	</p>
+	</div>
+	<img src="images/ph2.png">
+	</div>
+	<div id="coment5">
+	<img src="images/ph3.png">
+	<div id="coment5_t"><p>Марина Нижний Новгород.<br>
+	Эти тапки как одела, так с ними и не расстаюсь. Ношу их всегда когда дома,  даже когда днём лежу на кровати или на диване, то не снимаю их)) Очень удобные угги, ноги не мерзнут,мягкие, комфортные, легкие и привезли быстро, все супер спасибо!
+	</p>
+	</div></div>
+	<div id="coment6">
+	<div id="coment6_t">
+	<p>Катерина Новосибирск<br>
+	Решила подарить себе любимый на 14 февраля теплый подарок :) Сначала выбирала пушисый шарф, но случайно наткнулась в интернете на ваш сайт и сразу поняла, что шарф подождет, я же всегда хотела такие тапочки, и вот они сваись сами на меня. Радости моей не было границ! Мои любимый белый мех, я его просто обожаю. Теперь вот сижу дома в кофте и тапочках, особенно по утрам, когда только вылезешь из под теплого одеяла, зябко, сразу первым делом их одеваю, пока не проснусь и не согреюсь горячим кофе. Вот так, поэтому спасибо вам и хороший отзыв :)
+	</p>
+
+	</div>
+	<img src="images/ph4.png">
+	</div>
+	<div id="coment7">
+	<img src="images/ph5.png">
+	<div id="coment7_t"><p>Олеся Санкт-Петербург<br>
+	Суперские тапки,особенно шикарно смотряться с домашней кофтой,подруги обзавидовались, спрашивали, у вас на повторную покупку скидки бывают?
+	</p>
+	</div>
+	</div>
+	
+	</div>
+	<div class="clear2"></div>
+<div class="otzot"><p>Отправить свой отзыв можно на почту:<br> 
+<a href="mailto:info@pandaboots.ru">info@pandaboots.ru</a></p></div>
+	<div id="form3">
+		<p class="form3_h">Закажите угги прямо сейчас</p>
+		<p class="form3_t">Оставьте свой телефон, и в течение<br> 15 минут мы вам перезвоним</p>
+			<form method="POST" action="#" name="#" onsubmit="yaCounter22835437.reachGoal('zakzvnmt'); return true;">
+		<p><input type="text" name="telephone" placeholder="ваш телефон" required="required"></p>
+		<input type="submit" name="send3" value="">
+		</form>
+		<div class="bot_wrp"><p class="ser">Весь товар <span>сертифицирован.</span> Гарантия   1   год.</p></div>
+	</div >
+	<div id="footer">
+		<div class="f_logo"></div>
+		<div class="f_info"><p class="tel1">8(495)663-52-39</p>
+			<p class="tel1">8(925)663-52-39</p><div><a href="#call" onclick="yaCounter22835437.reachGoal('zakzv'); return true;"><img style="margin:0;" src="images/call_but.png"></a>
+			</div></a></div>
+		<div class="f_text"><p>Продажа домашних угг с доставкой по всей России</p></div>
+		<div class="end_f"><p>Город Москва, м. Пушкинская, улица Петровка, дом.23, стр.10. ИП Юшина Е.А.     ОГРН: 311169030100176      ИНН: 165807987650</p></div>
+	</div >
+
+<div id="call" class="modalDialog">
+      <div id="call-form-hide" ><a href="#close" title="Закрыть" class="close">X</a>
+        <div id="form11" style="">
+			<!--<p class="form1_t12">Хотите купить слинг,<br>но не знаете какой выбрать?</p>
+			--><p class="form1_t22">Укажите ваше данные<br> и мы перезвоним вам в</br> течение 15 минут в рабочее время</p>
+			<form method="POST" action="index.php" name="myform1" onsubmit="yaCounter22835437.reachGoal('zakzvt'); return true;submit_func3();return stop_func3;">
+				
+				<p><input type="text" name="name" placeholder="ваше имя" required="required"></p>
+				
+				<p><input type="text" name="telephone" placeholder="ваш телефон" required="required"></p>
+				<input type="submit" name="send" value="" >
+			</form>
+		</div></div></div></div></div>
+
+
+
+	
+<script type="text/javascript">
+			function getProduct(el) {
+				var price = $(el).siblings('.price').html();
+				var product = $(el).siblings('.color').children('p').html();
+				$('body').append('<div id="prTemp" class="modalDialog"><div id="call-form-hide" ><a href="#close" title="Закрыть" class="close">X</a><div id="form11" style=""><p class="form1_t22">Укажите ваше имя и телефон<br> и мы перезвоним вам в</br> течение 15 минут в рабочее время</p><form method="POST" action="index.php" name="myform1" onsubmit="yaCounter22835437.reachGoal('+"'zaktovt'"+'); return true; submit_func3();return stop_func3;"><input type="hidden" name="product" value="'+product+'" /><input type="hidden" name="colect" id="coll1" value="" /><p><input type="text" name="name" placeholder="ваше имя" required="required"></p><p><input type="text" name="telephone" placeholder="ваш телефон" required="required"></p><input type="submit" name="send4" value="" ></form></div></div></div>');
+				window.location.hash = 'prTemp';
+				return false;
+			}
+			function addColor(el) {
+				var d = $(el).val();
+				$(el).parent('div').siblings('.cusel').remove();
+				switch(d) {
+					case '1':
+					var color = ['Волшебные бабочки','Флора','Аметистовые бабочки','Дыхание лета'];
+					break;
+					
+					case '2':
+					var color = ['Сказки Австралии','Розовые фламинго','Воздушное путешествие','Бирюзовая ночь','Легенды Азии','Песня лета','Мелодия весны'];
+					break;
+					
+					case '3':
+					var color = ['Апельсин','Бисквит'];
+					break;
+				}
+				var opts = '';
+				for (var i=0;i<color.length;i++) {
+					opts += '<option value="'+color[i]+'">'+color[i]+'</option>';
+				}
+				$(el).parent('div').after('<select id="'+color.length+'" value="color">'+opts+'</select>');
+				cuSel(params);
+			}
+var d = new Date();
+var monthA = 'января,февраля,марта,апреля,мая,июня,июля,августа,сентября,октября,ноября,декабря'.split(',');
+var s = monthA[d.getMonth()];
+var k = d.getDate() + 1;
+document.getElementById('date').innerHTML="до "+k+" "+s;
+document.getElementById('date2').innerHTML="до "+k+" "+s;
+</script>
+
+
+
+
+
+
+<script src="js/jquery.countdown.js"></script>
+		<script src="js/script.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter22835437 = new Ya.Metrika({id:22835437,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/22835437" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>
