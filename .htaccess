@@ -1,4 +1,8 @@
 # Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
 RewriteBase /
 
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf|js|css|pdf)$">
+  Header set Cache-Control "max-age=2592000"
+</FilesMatch>
+
 DirectoryIndex index.html
