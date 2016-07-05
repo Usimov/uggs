@@ -5,9 +5,6 @@ RewriteBase /
   Header set Cache-Control "max-age=2592000"
 </FilesMatch>
 
-<ifmodule mod_deflate="" c="">
-SetOutputFilter DEFLATE
-Header append Vary User-Agent
-</ifmodule>
+
 
 DirectoryIndex index.html
